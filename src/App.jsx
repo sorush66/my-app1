@@ -54,15 +54,33 @@ export default function App() {
     return (<>
         <Header />
 
-        <div>
-            {pizza.map((data) => (
-                <Pizza key={data.name} info={data} />
-            ))}
-        </div>
+        <main className="menu">
+            <ul className="pizzas">
+
+
+                {pizza.map((data) => (
+                    <Pizza key={data.name} info={data} />
+                ))}
+            </ul>
+        </main>
 
         <Footer />
     </>)
 
+}
+
+function Pizza({ info }) {
+    return (<li className="pizza">
+        <h3>{info.name}</h3>
+        <img src={info.photoName} alt={info.name} srcSet="" />
+        <p>
+            ingredients : {info.ingredients}
+        </p>
+        <div>
+            pirce : {info.price}
+        </div>
+
+    </li>)
 }
 
 function Header() {
@@ -74,21 +92,7 @@ function Header() {
 }
 
 function Footer() {
-    return (<>
+    return (<footer>
 
-    </>)
-}
-
-function Pizza({ info }) {
-    return (<>
-        <h2>{info.name}</h2>
-        <img src={info.photoName} alt={info.name} srcSet="" />
-        <p>
-            ingredients : {info.ingredients}
-        </p>
-        <div>
-            pirce : {info.price}
-        </div>
-
-    </>)
+    </footer>)
 }
